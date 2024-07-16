@@ -64,7 +64,7 @@ public class EmpleadoController {
 
     // Método que recibe por POST los datos de los controles del formulario de alta de empleado
     @PostMapping("/persistirEmpleado")
-    public String altaModificacionDeEmpleado(@ModelAttribute Empleado empleado) {
+    public String persistirEmpleado(@ModelAttribute Empleado empleado) {
 
         empleadoService.persistirUpdateEmpleado(empleado);
 
@@ -87,7 +87,7 @@ public class EmpleadoController {
         model.addAttribute("empleado", empleado);
         model.addAttribute("departamentos", departamentos);
 
-        return "altaModificacionDeEmpleado";
+        return "persistirEmpleado";
 
 
     }
