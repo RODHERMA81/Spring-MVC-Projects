@@ -42,6 +42,7 @@ public class Empleado implements Serializable  {
     private LocalDate fechaAlta;
     @Enumerated(EnumType.STRING)
     private Genero genero;
+    private String foto;
     
     // Relacion con Dpto: Un empleado trabaja en un sólo departamento
     @ManyToOne(fetch = FetchType.LAZY)
