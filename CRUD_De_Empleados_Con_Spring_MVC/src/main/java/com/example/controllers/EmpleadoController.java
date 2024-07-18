@@ -120,7 +120,9 @@ public class EmpleadoController {
         model.addAttribute("empleado", empleado);
         model.addAttribute("departamentos", departamentos);
 
-        return "persistirEmpleado";
+       
+
+       return "altaModificacionDeEmpleado";
 
     }
 
@@ -134,5 +136,13 @@ public class EmpleadoController {
         return "redirect:/empleado/all";
     }
 
+    // Método que muestra los DETALLES del empleado, en éste caso, de detalles solo existe la foto
+    @GetMapping("/empleadoDetalles/{id}")
+    public String empleadoDetalles(@PathVariable(name = "id") int idEmpleado, Model model) {
 
+        Empleado empleado = empleadoService.getEmpleado(idEmpleado);
+        model.addAttribute("empleado", empleado);
+
+        return "detallesDelEmpleado";
+    }
 }
