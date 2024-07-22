@@ -2,21 +2,19 @@ package com.example;
 
 import java.time.LocalDate;
 import java.time.Month;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.example.entities.Departamento;
 import com.example.entities.Empleado;
 import com.example.entities.Genero;
 import com.example.services.DepartamentoService;
 import com.example.services.EmpleadoService;
-
 import lombok.RequiredArgsConstructor;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+
 public class CrudDeEmpleadosConSpringMvcApplication implements CommandLineRunner{
 
 	private final DepartamentoService departamentoService;
@@ -98,7 +96,7 @@ public class CrudDeEmpleadosConSpringMvcApplication implements CommandLineRunner
 		empleadoService.persistirUpdateEmpleado(emp21);
 		empleadoService.persistirUpdateEmpleado(emp12);
 		empleadoService.persistirUpdateEmpleado(emp22);
-
+		
 	}
 
 }

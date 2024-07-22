@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de Alta/Modificacion de Estudiante</h1>
+    <form th:object="${estudiante}" enctype="multipart/form-data" th:action="@{/estudiante/persistirEstudiante}" method="post">
+        <input type="hidden" th:value="${estudiante.id}" name="id" th:field="*{id}">
+        <input type="text" placeholder="Nombre:" th:field="*{nombre}" th:value="${estudiante.nombre}">
+        <input type="text" placeholder="Primer Apellido:" th:field="*{primerApellido}" th:value="${estudiante.primerApellido}">
+        <input type="text" placeholder="Segundo Apellido:" th:field="*{segundoApellido}" th:value="${estudiante.segundoApellido}">
+
+        <label for="fechaDeMatriculacion">Fecha De Matriculacion:</label>
+        <input type="date" id="fechaDeMatriculacion" th:field="*{fechaDeMatriculacion}" th:value="${estudiante.fechaDeMatriculacion}">
+        
+        <label for="facultad">Facultad</label>
+        <select name="facultad">
+            <option></option>
+            <option th:each="facultad : ${facultades}"
+            th:value="${facultad.id}"
+            th:text="${facultad.nombre}"
+            th:selected="${estudiante.id !=0 and facultad.id == estudiante.facultad.id}"></option>
+        </select>
+
+        <fieldset>
+        
+            <legend>Genero: </legend>
+            <label for="hombre">Hombre: </label>
+            <input type="radio" id="hombre" value="HOMBRE" th:field="*{genero}">
+            <label for="mujer">Mujer: </label>
+            <input type="radio" id="mujer" value="MUJER" th:field="*{genero}">
+            <label for="otro">Otro: </label>
+            <input type="radio" id="otro" value="OTRO" th:field="*{genero}">
+            
+
+    </fieldset>
+    <label for="foto">Foto:</label>
+    <input type="file" name="imagen" id="foto">
+
+    <input type="submit">
+
+    </form>
+</body>
+</html>
